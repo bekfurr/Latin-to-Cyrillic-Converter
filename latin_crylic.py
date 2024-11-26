@@ -25,9 +25,31 @@ def translate_text():
     a = ""
     n = len(s)
     i = 0
+    if s[0] == 'e':
+        a += 'э'
+        i += 1
+    elif s[0] == 'E':
+        a += 'Э'
+        i += 1
+    elif s[0:2] == 'ye':
+        a += 'е'
+        i += 2
+    elif s[0:2] == 'YE' or s[0:2] == 'Ye':
+        a += 'Е'
+        i += 2
 
     while i < n:
-        if i + 2 <= n and s[i:i+2] in latin_cyrillic2:
+
+        
+
+        if s[i:i+3] == ' ye':
+            a += ' е'
+            i += 3
+        elif s[i:i+3] == ' YE' or s[i:i+3] == ' Ye':
+            a += ' Е'
+            i += 3
+
+        elif i + 2 <= n and s[i:i+2] in latin_cyrillic2:
             a += latin_cyrillic2[s[i:i+2]]
             i += 2
         else:
@@ -61,3 +83,5 @@ chiqar_text.pack()
 
 oyna.mainloop()
 
+# BEKFURR SINCE 2024
+# 10.26.2024
